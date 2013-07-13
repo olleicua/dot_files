@@ -1,0 +1,19 @@
+[user]
+	name = Sam Auciello
+	email = olleicua@gmail.com
+[github]
+	user = olleicua
+	token = ********************************
+[color]
+	ui = auto
+[core]
+	editor = emacs
+[merge]
+	tool = vimdiff
+[alias]
+	st = status
+	ci = commit
+	co = checkout
+	b = branch
+[push]
+	default = upstream

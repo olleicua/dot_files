@@ -1,5 +1,7 @@
-My ~/.*
+My `~/.*`
 
 Contents
 ----
 
+- .gitconfig
+- .zshrc
