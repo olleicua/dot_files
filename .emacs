@@ -12,7 +12,12 @@
 (require 'coffee-mode)
 (require 'markdown-mode)
 
-;; rainbow parentheses
+;; TRAILING WHITESPACE
+
+(setq-default show-trailing-whitespace t)
+
+;; RAINBOW PARENTHESES
+
 (require 'rainbow-delimiters)
 (add-hook 'prog-mode-hook 'rainbow-delimiters-mode)
 (custom-set-variables
