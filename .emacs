@@ -12,10 +12,6 @@
 (require 'coffee-mode)
 (require 'markdown-mode)
 
-;; TRAILING WHITESPACE
-
-(setq-default show-trailing-whitespace t)
-
 ;; RAINBOW PARENTHESES
 
 (require 'rainbow-delimiters)
@@ -152,6 +148,7 @@ RECURRENCES occasions."
 ; auto modes
 
 (defun my-auto-mode ()
+  (visible-whitespace-mode)
   (rainbow-delimiters-mode)
   (when (stringp buffer-file-name)
 	(cond
