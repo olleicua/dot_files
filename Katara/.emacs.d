@@ -1,1 +1,0 @@
-/home/olleicua/.emacs.d
