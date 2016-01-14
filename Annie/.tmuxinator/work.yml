@@ -1,0 +1,12 @@
+name: default
+root: ~/
+windows:
+  - '':
+  - mbta: cd ~/Work/open_source/mbta_app
+  - mbta-server: cd ~/Work/open_source/mbta_app && server
+  - em: cd ~/Work/greenriver/emtrial
+  - em-server:
+      panes:
+        - cd ~/Work/greenriver/emtrial && rails s -p 3001
+        - cd ~/Work/greenriver/emtrial && rails c
+  - mp: cd ~/Music
