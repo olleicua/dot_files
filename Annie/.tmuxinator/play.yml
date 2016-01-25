@@ -1,0 +1,10 @@
+name: play
+root: ~/
+windows:
+  - '':
+  - draft: cd ~/Play/drafter
+  - draft-server:
+      panes:
+        - cd ~/Play/drafter && rails s
+        - cd ~/Play/drafter && rails c
+  - mp: cd ~/Music
