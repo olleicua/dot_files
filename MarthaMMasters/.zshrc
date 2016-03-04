@@ -19,8 +19,8 @@ source $HOME/.zsh/git-prompt/zshrc.sh
 PROMPT="
 %F{green}%B$ %b%f"
 
-#RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f$(git_super_status)%(0?--%F{green}%B |%b%f %F{red}%B%?%b%f)'
-RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f%(0?--%F{green}%B |%b%f %F{red}%B%?%b%f)'
+RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f$(git_super_status)%(0?--%F{red} %?!%f)'
+#RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f%(0?--%F{green}%B |%b%f %F{red}%B%?%b%f)'
 
 # NAVIGATION #
 
@@ -37,7 +37,7 @@ function mkcd() {
 
 # FILES #
 
-alias e="emacs"
+alias e="emacs -nw"
 alias t="touch"
 export EDITOR="/usr/bin/emacs"
 
@@ -73,7 +73,8 @@ function gen-migration() {
 # DEV #
 
 alias g=git
-alias ez="emacs ~/.zshrc"
+alias ez="emacs -nw ~/.zshrc"
+alias eg="emacs -nw ~/.gitconfig"
 alias z=". ~/.zshrc"
 alias rand="ruby -e'p rand ARGV[0].to_i'"
 alias svn="echo '... really..?' #"
