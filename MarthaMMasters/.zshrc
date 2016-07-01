@@ -24,7 +24,7 @@ RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f$(git_super_status)%(0?--%F{red} %?!%
 
 # NAVIGATION #
 
-alias l="ls -lah --color"
+alias l="ls -lahgG --color"
 alias tree="tree -l"
 alias mkd="mkdir -pv"
 alias cp="cp -rv"
@@ -61,6 +61,8 @@ alias path="echo $PATH | tr : '\n'"
 alias dot="dot -Tpng"
 alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
+
+alias apti="sudo apt-get install"
 
 # RAILS #
 
