@@ -21,7 +21,7 @@
 	rh = reset HEAD
 	rall = reset HEAD .
 
-	# commit	
+	# commit
 	ci = commit
 	ca = "!git add . -v ; git commit"
 	cam = "!git add . -v ; git commit -m"
