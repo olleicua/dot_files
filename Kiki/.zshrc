@@ -44,7 +44,7 @@ function ls-grep-count() {
 }
 
 function l() {
-    ls -lahOGF $* &&
+    ls -lahOGFo $* &&
     echo "\n"$(($(ls -la $* | wc -l) - 3)) items '('d:$(($(ls -laF $* | grep '\/$' | wc -l) - 2)) x:$(($(ls -laF $* | grep '\*$' | wc -l) * 1)) s:$(($(ls -laF $* | grep '@ ->' | wc -l) * 1))')';
 }
 
