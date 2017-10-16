@@ -35,6 +35,5 @@
 	b = branch
 
 	# remotes
-	dp = "!git checkout develop ; git pull"
 	pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
 	forcepull = "!git fetch ; git reset --hard @{u}"
