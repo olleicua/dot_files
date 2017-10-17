@@ -10,18 +10,13 @@
 #   editor.onDidSave ->
 #     console.log "Saved! #{editor.getPath()}"
 
-atom.workspace.observeTextEditors (editor) ->
-  editor.currentLine = ->
-    currentPosition = @getCursorBufferPosition()
-    beginningOfLine = [currentPosition.row, 0]
-    beginningOfNextLine = [currentPosition.row + 1, 0]
-    [beginningOfLine, beginningOfNextLine]
-
 atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
   editor = atom.workspace.getActiveTextEditor()
-  editor.scanInBufferRange(
-    /^- \[(.)\]/,
-    editor.currentLine(),
-    ({match, replace}) ->
-      replace(if match[1] is ' ' then '- [x]' else '- [ ]')
-  )
+  cursors = editor.getCursors()
+  for cursor in cursors
+    editor.scanInBufferRange(
+      /^- \[(.)\]/,
+      cursor.getCurrentLineBufferRange(),
+      ({match, replace}) ->
+        replace(if match[1] is ' ' then '- [x]' else '- [ ]')
+    )
