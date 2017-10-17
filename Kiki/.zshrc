@@ -75,7 +75,7 @@ function c() {
     cc $1.c -o $1 && ./$1
 }
 
-alias rmdow="rm -rf $HOME/Downloads/*"
+alias rmdow="rm -rfv $HOME/Downloads/*"
 
 alias path="echo $PATH | tr : '\n'"
 alias ts="date -r"
