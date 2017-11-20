@@ -5,10 +5,6 @@
 # has been restored.
 #
 # An example hack to log to the console when each text editor is saved.
-#
-# atom.workspace.observeTextEditors (editor) ->
-#   editor.onDidSave ->
-#     console.log "Saved! #{editor.getPath()}"
 
 atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
   editor = atom.workspace.getActiveTextEditor()
@@ -20,3 +16,18 @@ atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
       ({match, replace}) ->
         replace(if match[1] is ' ' then '- [x]' else '- [ ]')
     )
+
+# atom.commands.add 'atom-text-editor', 'custom:rectangle', ->
+#   editor = atom.workspace.getActiveTextEditor()
+#   range = editor.getSelectedBufferRange()
+#   for selection in editor.getSelections()
+#     console.log(selection);
+#     selection.destroy()
+#
+#   left = Math.min(range.start.column, range.end.column)
+#   width = Math.abs(range.start.column - range.end.column)
+#   top = Math.min(range.start.row, range.end.row)
+#   height = Math.abs(range.start.row - range.end.row)
+#
+#   for row in [0..height]
+#     editor.addCursorAtBufferPosition([top + row, left])

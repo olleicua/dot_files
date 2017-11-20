@@ -32,3 +32,7 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 'atom-text-editor':
     'ctrl-c ctrl-c': 'custom:toggle-checkbox'
+    'ctrl-x ctrl-r': 'custom:rectangle'
+
+'atom-pane':
+  'ctrl-c ctrl-f': 'tabs:close-other-tabs'

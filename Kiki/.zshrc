@@ -187,14 +187,20 @@ PATH=$PATH:$HOME/bin # Add RVM to PATH for scripting
 # JARVIS DEV
 
 alias ems="ember serve --live-reload-port 49153"
+alias emsr="ember serve --live-reload-port 49153 -p 8081 --proxy http://sam.dev.zipcar.io"
 alias emt="ember test --serve --filter"
 alias noc="OVERCOMMIT_DISABLE=1"
+alias nu="nvm use"
 
 eval "$(rbenv init -)"
 
 function gr() {
     grip $1 & sleep 1 && open http://127.0.0.1:6419 && fg
 }
+
+# JAVA DEV #
+
+export JAVA_HOME=/Library/Java/JavaVirtualMachines/jdk1.8.0_152.jdk/Contents/Home
 
 # FUN
 
@@ -203,3 +209,7 @@ alias flake="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/fla
 alias measure-flakiness="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/flake/measure_flakiness.rb"
 
 export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
