@@ -30,6 +30,9 @@
 # If you are unfamiliar with CSON, you can read more about it in the
 # Atom Flight Manual:
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
+'body':
+  'ctrl-x ctrl-b': 'custom:last-active-tab'
+
 'atom-text-editor':
   'ctrl-c ctrl-c': 'custom:toggle-checkbox'
   'alt-\\': 'custom:delete-horizontal-space'

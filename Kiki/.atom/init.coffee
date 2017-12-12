@@ -23,15 +23,32 @@ deleteHorizontalSpace = (replacement) ->
   editor.scan /\s+/g, ({range, replace}) ->
     if cursors.some((c) -> range.containsPoint(c.getBufferPosition()))
       replace replacement
-
 atom.commands.add 'atom-text-editor', 'custom:delete-horizontal-space', ->
   deleteHorizontalSpace ''
-
 atom.commands.add 'atom-text-editor', 'custom:shorten-horizontal-space', ->
   deleteHorizontalSpace ' '
 
+activeTabHistory = []
+addToActiveTabHistory = ([pane, tab]) ->
+  console.log pane, tab
+  if activeTabHistory.length is 0
+    activeTabHistory.push [pane, tab]
+  else
+    [lastPane, lastTab] = activeTabHistory[activeTabHistory.length - 1]
+    activeTabHistory.push [pane, tab] unless pane is lastPane and tab is lastTab
+atom.workspace.observePanes (pane) ->
+  pane.onDidActivate ->
+    addToActiveTabHistory [pane, pane.getActiveItem()]
+  pane.onDidChangeActiveItem (item) ->
+    addToActiveTabHistory [pane, item]
+atom.commands.add 'atom-text-editor', 'custom:last-active-tab', ->
+  if activeTabHistory.length > 1
+    [pane, tab] = activeTabHistory[activeTabHistory.length - 2]
+    pane.activateItem(tab)
+    pane.activate()
+
 # this is a bit hacky but isn't that the point :p
-atom.commands.add 'atom-text-editor', 'custom:autocomplete', ->
+atom.commands.add 'body', 'custom:autocomplete', ->
   editor = atom.workspace.getActiveTextEditor()
   view = atom.views.getView(editor)
   if document.querySelector('atom-overlay.autocomplete-plus')
