@@ -30,6 +30,15 @@ atom.commands.add 'atom-text-editor', 'custom:delete-horizontal-space', ->
 atom.commands.add 'atom-text-editor', 'custom:shorten-horizontal-space', ->
   deleteHorizontalSpace ' '
 
+# this is a bit hacky but isn't that the point :p
+atom.commands.add 'atom-text-editor', 'custom:autocomplete', ->
+  editor = atom.workspace.getActiveTextEditor()
+  view = atom.views.getView(editor)
+  if document.querySelector('atom-overlay.autocomplete-plus')
+    atom.commands.dispatch(view, 'core:move-down')
+  else
+    atom.commands.dispatch(view, 'autocomplete-plus:activate')
+
 # atom.commands.add 'atom-text-editor', 'custom:rectangle', ->
 #   editor = atom.workspace.getActiveTextEditor()
 #   range = editor.getSelectedBufferRange()
