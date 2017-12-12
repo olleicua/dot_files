@@ -17,6 +17,19 @@ atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
         replace(if match[1] is ' ' then '- [x]' else '- [ ]')
     )
 
+deleteHorizontalSpace = (replacement) ->
+  editor = atom.workspace.getActiveTextEditor()
+  cursors = editor.getCursors()
+  editor.scan /\s+/g, ({range, replace}) ->
+    if cursors.some((c) -> range.containsPoint(c.getBufferPosition()))
+      replace replacement
+
+atom.commands.add 'atom-text-editor', 'custom:delete-horizontal-space', ->
+  deleteHorizontalSpace ''
+
+atom.commands.add 'atom-text-editor', 'custom:shorten-horizontal-space', ->
+  deleteHorizontalSpace ' '
+
 # atom.commands.add 'atom-text-editor', 'custom:rectangle', ->
 #   editor = atom.workspace.getActiveTextEditor()
 #   range = editor.getSelectedBufferRange()

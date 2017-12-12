@@ -154,14 +154,6 @@ we() {
     eval "$@";
 }
 
-# GIT #
-
-#source ~/git-completion.bash
-alias glp="git log --pretty=format:\"%an <%ae>
-  %ar
-  %s
-\""
-
 # RAILS
 
 alias routes-grep="bundle exec rake routes | grep"
@@ -212,4 +204,22 @@ export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+#npm config delete prefix
+#npm config delete prefix
+
+# GIT #
+
+source ~/.zsh/git-flow-completion.zsh
+
+# TMUX #
+
+alias side="tmux split-window -h -l 50"
+alias hud="tmux split-window -v -l 30"
+
+export PATH="$HOME/.yarn/bin:$PATH"
+
+
+# MISC #
+
+export VAULT_ADDR=https://vault.zipcar.io

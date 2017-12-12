@@ -32,6 +32,8 @@
 # http://flight-manual.atom.io/using-atom/sections/basic-customization/#configuring-with-cson
 'atom-text-editor':
     'ctrl-c ctrl-c': 'custom:toggle-checkbox'
+    'alt-\\': 'custom:delete-horizontal-space'
+    'alt-]': 'custom:shorten-horizontal-space'
     'ctrl-x ctrl-r': 'custom:rectangle'
 
 'atom-pane':
