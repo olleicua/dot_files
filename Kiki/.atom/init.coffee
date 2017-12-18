@@ -17,16 +17,21 @@ atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
         replace(if match[1] is ' ' then '- [x]' else '- [ ]')
     )
 
-deleteHorizontalSpace = (replacement) ->
+deleteHorizontalSpace = ->
   editor = atom.workspace.getActiveTextEditor()
   cursors = editor.getCursors()
   editor.scan /\s+/g, ({range, replace}) ->
     if cursors.some((c) -> range.containsPoint(c.getBufferPosition()))
-      replace replacement
+      replace ''
 atom.commands.add 'atom-text-editor', 'custom:delete-horizontal-space', ->
-  deleteHorizontalSpace ''
+  deleteHorizontalSpace()
 atom.commands.add 'atom-text-editor', 'custom:shorten-horizontal-space', ->
-  deleteHorizontalSpace ' '
+  deleteHorizontalSpace()
+  editor = atom.workspace.getActiveTextEditor()
+  cursors = editor.getCursors()
+  for cursor in cursors
+    p = cursor.getBufferPosition()
+    editor.setTextInBufferRange([p, p], ' ')
 
 activeTabHistory = []
 addToActiveTabHistory = ([pane, tab]) ->

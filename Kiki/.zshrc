@@ -97,6 +97,8 @@ function rd() {
 
 # MUSIC #
 
+alias wmbr="mplayer http://wmbr.org:8000/hi"
+
 MUSIC=$HOME/Music/shared
 
 function music() {
