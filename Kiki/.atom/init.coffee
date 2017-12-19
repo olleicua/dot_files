@@ -6,6 +6,8 @@
 #
 # An example hack to log to the console when each text editor is saved.
 
+# CHECK BOXES #
+
 atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
   editor = atom.workspace.getActiveTextEditor()
   cursors = editor.getCursors()
@@ -16,6 +18,8 @@ atom.commands.add 'atom-text-editor', 'custom:toggle-checkbox', ->
       ({match, replace}) ->
         replace(if match[1] is ' ' then '- [x]' else '- [ ]')
     )
+
+# REMOVE HORIZONTAL SPACE #
 
 deleteHorizontalSpace = ->
   editor = atom.workspace.getActiveTextEditor()
@@ -32,6 +36,8 @@ atom.commands.add 'atom-text-editor', 'custom:shorten-horizontal-space', ->
   for cursor in cursors
     p = cursor.getBufferPosition()
     editor.setTextInBufferRange([p, p], ' ')
+
+# SWITCH TO MOST RECENT TAB #
 
 activeTabHistory = []
 addToActiveTabHistory = ([pane, tab]) ->
@@ -52,14 +58,50 @@ atom.commands.add 'atom-text-editor', 'custom:last-active-tab', ->
     pane.activateItem(tab)
     pane.activate()
 
-# this is a bit hacky but isn't that the point :p
-atom.commands.add 'body', 'custom:autocomplete', ->
+# TAB (indentation / autocomplete) #
+
+indent = ->
+  editor = atom.workspace.getActiveTextEditor()
+  cursors = editor.getCursors()
+  for cursor in cursors
+    beginningOfLine = cursor.getCurrentLineBufferRange().start
+    editor.setTextInBufferRange([beginningOfLine, beginningOfLine], '  ')
+
+unindent = ->
+  editor = atom.workspace.getActiveTextEditor()
+  cursors = editor.getCursors()
+  for cursor in cursors
+    line = cursor.getCurrentLineBufferRange()
+    editor.scanInBufferRange(/^  /, line, ({replace}) -> replace(''))
+
+customAutocomplete = ->
   editor = atom.workspace.getActiveTextEditor()
   view = atom.views.getView(editor)
   if document.querySelector('atom-overlay.autocomplete-plus')
     atom.commands.dispatch(view, 'core:move-down')
   else
     atom.commands.dispatch(view, 'autocomplete-plus:activate')
+
+atom.commands.add 'body', 'custom:tab', ->
+  editor = atom.workspace.getActiveTextEditor()
+  cursor = editor.getCursors()[0]
+  p = cursor.getBufferPosition()
+  if p.column is 0
+    indent()
+    return
+  str = editor.getTextInBufferRange([p.translate([0, -1]), p.translate([0, 1])])
+  if /^[a-zA-Z0-9][^a-zA-Z0-9]?$/.exec(str)
+    customAutocomplete()
+  else
+    indent()
+
+atom.commands.add 'body', 'custom:shift-tab', ->
+  editor = atom.workspace.getActiveTextEditor()
+  view = atom.views.getView(editor)
+  if document.querySelector('atom-overlay.autocomplete-plus')
+    atom.commands.dispatch(view, 'core:move-up')
+  else
+    unindent()
 
 # atom.commands.add 'atom-text-editor', 'custom:rectangle', ->
 #   editor = atom.workspace.getActiveTextEditor()

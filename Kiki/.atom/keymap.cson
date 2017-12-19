@@ -38,7 +38,8 @@
   'alt-\\': 'custom:delete-horizontal-space'
   'alt-]': 'custom:shorten-horizontal-space'
   'ctrl-x ctrl-r': 'custom:rectangle'
-  'tab': 'custom:autocomplete'
+  'tab': 'custom:tab'
+  'shift-tab': 'custom:shift-tab'
 
 'atom-pane':
   'ctrl-c ctrl-f': 'tabs:close-other-tabs'
