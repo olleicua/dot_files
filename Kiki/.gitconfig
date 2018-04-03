@@ -35,6 +35,9 @@
 	back = checkout -
 	b = branch
 
+	# merge
+	pmm = "!git checkout master && git pull && git checkout - && git merge master" # pull merge master
+
 	# remotes
 	pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
 	forcepull = "!git fetch ; git reset --hard @{u}"
