@@ -98,6 +98,7 @@ function rd() {
 # MUSIC #
 
 alias wmbr="mplayer http://wmbr.org:8000/hi"
+alias pynk="mplayer $HOME/Music/Dirty\ Computer\ Explicit/07*"
 
 MUSIC=$HOME/Music/shared
 

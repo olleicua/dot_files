@@ -1,6 +1,6 @@
 [user]
-	name = Antha Auciello
-	email = sauciello@zipcar.com
+       name = Antha Auciello
+       email = sauciello@zipcar.com
 [push]
 	default = simple
 [color]
@@ -16,12 +16,14 @@
 	lr = log --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit master..HEAD
 	l = "!if [ `git rev-parse --abbrev-ref HEAD` = 'master' ]; then git lg; else git lr; fi"
 	ref = reflog --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit -n 12
+	tree = log --graph
 
 	# stage
 	a = add -v
 	all = add . -v --all
 	rh = reset HEAD
 	rall = reset HEAD .
+	rd = rm -r
 
 	# commit
 	ci = commit
