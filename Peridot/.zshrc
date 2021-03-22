@@ -25,7 +25,7 @@ source ~/.zsh/zsh-git-prompt/zshrc.sh
 PROMPT='
 %F{green}%B$ %b%f'
 
-RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f'
+RPROMPT='%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f'
 
 # NAVIGATION #
 
@@ -176,17 +176,17 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # BIN
 
-PATH=$PATH:/opt/homebrew/bin:$HOME/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/bin
 
 # FUN
 
 alias pray="coffee $HOME/Play/immortal.js.coffee"
-alias flake="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/flake/flake.rb"
-alias measure-flakiness="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/flake/measure_flakiness.rb"
+#alias flake="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/flake/flake.rb"
+#alias measure-flakiness="/Users/olleicua/.rvm/rubies/ruby-2.0.0-p643/bin/ruby $HOME/Play/flake/measure_flakiness.rb"
 
 # NODE / RVM things..
 
-export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
+#export PATH="$PATH:$HOME/.rvm/bin" # Add RVM to PATH for scripting
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
@@ -204,3 +204,8 @@ export NVM_DIR="$HOME/.nvm"
 # alias hud="tmux split-window -v -l 30"
 
 export PATH="$HOME/.yarn/bin:$PATH"
+
+
+# RBENV
+
+eval "$(rbenv init -)"
