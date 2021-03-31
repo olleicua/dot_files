@@ -32,6 +32,10 @@
 	amend = commit --amend
 	also = "!git add . -v ; git commit --amend -C HEAD"
 
+        # show
+        last = "show HEAD --name-only"
+        xst = "show --name-only"
+
 	# tree
 	co = checkout
 	back = checkout -

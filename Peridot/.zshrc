@@ -23,9 +23,11 @@ promptinit
 source ~/.zsh/zsh-git-prompt/zshrc.sh
 
 PROMPT='
+%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f
 %F{green}%B$ %b%f'
 
-RPROMPT='%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f'
+RPROMPT=''
+#RPROMPT='%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f'
 
 # NAVIGATION #
 
@@ -176,7 +178,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # BIN
 
-PATH=$PATH:$HOME/bin
+PATH=$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/.gem/ruby/2.5.0/bin:$HOME/bin
 
 # FUN
 
@@ -209,3 +211,9 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # RBENV
 
 eval "$(rbenv init -)"
+
+# run servers
+
+alias uapi="pushd ~/repos/user-api && bin/rails s --port=3002"
+alias update-fe="pushd ~/repos/front-end && git pull && yarn link && popd && pushd ~/repos/charity-api && yarn link @givelively/front-end && popd"
+alias capi="pushd ~/repos/charity-api && heroku local -f Procfile.dev"
