@@ -45,5 +45,6 @@
 	pmm = "!git checkout main && git pull && git checkout - && git merge main" # pull merge main
 
 	# remotes
+        pf = push --force-with-lease
 	pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
 	forcepull = "!git fetch ; git reset --hard @{u}"
