@@ -178,7 +178,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # BIN
 
-PATH=$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/.gem/ruby/2.5.0/bin:$HOME/bin
+PATH=$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/.gem/ruby/2.5.0/bin:/Users/sam/.gem/ruby/2.7.0/bin:$HOME/bin
 
 # FUN
 
@@ -217,3 +217,7 @@ eval "$(rbenv init -)"
 alias uapi="pushd ~/repos/user-api && bin/rails s --port=3002"
 alias update-fe="pushd ~/repos/front-end && git pull && yarn link && popd && pushd ~/repos/charity-api && yarn link @givelively/front-end && popd"
 alias capi="pushd ~/repos/charity-api && heroku local -f Procfile.dev"
+
+alias yicf="yarn install --check-files"
+
+export EDITOR='emacs -nw'
