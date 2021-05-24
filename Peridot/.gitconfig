@@ -2,49 +2,49 @@
        name = Sam
        email = sam.auciello@givelively.org
 [push]
-	default = simple
+        default = simple
 [color]
-	ui = auto
+        ui = auto
 [core]
-	editor = emacs
+        editor = emacs
 [merge]
-	tool = vimdiff
+        tool = vimdiff
 [alias]
-	# read
-	st = status --untracked-files=all
-	lg = log --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit -n 12
-	lr = "!git log --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit `git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'`..HEAD"
-	l = "!if [ `git rev-parse --abbrev-ref HEAD` = `git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'` ]; then git lg; else git lr; fi"
-	ref = reflog --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit -n 12
-	tree = log --graph
+        # read
+        st = status --untracked-files=all
+        lg = log --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit -n 12
+        lr = "!git log --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit `git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'`..HEAD"
+        l = "!if [ `git rev-parse --abbrev-ref HEAD` = `git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'` ]; then git lg; else git lr; fi"
+        ref = reflog --color --pretty=format:'%C(bold blue)%an%Creset%C(cyan)(%cr)%Creset: %Cred<%h>%Creset%C(yellow)%d%Creset\n  %C(green)%s\n  %b' --abbrev-commit -n 12
+        tree = log --graph
 
-	# stage
-	a = add -v
-	all = add . -v --all
-	rh = reset HEAD
-	rall = reset HEAD .
-	rd = rm -r
+        # stage
+        a = add -v
+        all = add . -v --all
+        rh = reset HEAD
+        rall = reset HEAD .
+        rd = rm -r
 
-	# commit
-	ci = commit
-	ca = "!git add . -v ; git commit"
-	cam = "!git add . -v ; git commit -m"
-	amend = commit --amend
-	also = "!git add . -v ; git commit --amend -C HEAD"
+        # commit
+        ci = commit
+        ca = "!git add . -v ; git commit"
+        cam = "!git add . -v ; git commit -m"
+        amend = commit --amend
+        also = "!git add . -v ; git commit --amend -C HEAD"
 
         # show
         last = "show HEAD --name-only"
         xst = "show --name-only"
 
-	# tree
-	co = checkout
-	back = checkout -
-	b = branch
+        # tree
+        co = checkout
+        back = checkout -
+        b = branch
 
-	# merge
-	pmm = "!GIT_DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'`; git checkout $GIT_DEFAULT_BRANCH && git pull && git checkout - && git merge $GIT_DEFAULT_BRANCH" # pull merge main (or master or whatever the default branch is called)
+        # merge
+        pmm = "!GIT_DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'`; git checkout $GIT_DEFAULT_BRANCH && git pull && git checkout - && git merge $GIT_DEFAULT_BRANCH" # pull merge main (or master or whatever the default branch is called)
 
-	# remotes
+        # remotes
         pf = push --force-with-lease
-	pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
-	forcepull = "!git fetch ; git reset --hard @{u}"
+        pu = "!git push --set-upstream origin `git rev-parse --abbrev-ref HEAD`"
+        forcepull = "!git fetch ; git reset --hard @{u}"
