@@ -210,14 +210,17 @@ export PATH="$HOME/.yarn/bin:$PATH"
 
 # RBENV
 
-eval "$(rbenv init -)"
+#eval "$(rbenv init -)"
 
 # run servers
 
-alias uapi="pushd ~/repos/user-api && bin/rails s --port=3002"
-alias update-fe="pushd ~/repos/front-end && git pull && yarn link && popd && pushd ~/repos/charity-api && yarn link @givelively/front-end && popd"
-alias capi="pushd ~/repos/charity-api && heroku local -f Procfile.dev"
+alias uapi="pushd ~/user-api && bin/rails s --port=3002"
+alias capi="pushd ~/charity-api && heroku local -f Procfile.dev"
 
 alias yicf="yarn install --check-files"
 
 export EDITOR='emacs -nw'
+
+# RSPEC
+
+alias rsff="rspec --fail-fast"
