@@ -23,7 +23,7 @@ promptinit
 source ~/.zsh/zsh-git-prompt/zshrc.sh
 
 PROMPT='
-%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%B%m%b%f
+%(!|%F{magenta}|%F{cyan})%B%~%b%f %F{green}|%f $(git_super_status) %F{green}|%f %F{cyan}%B%* %w%b%f %(0?--%F{green}%B|%b%f %F{red}%B%?%b%f )%F{green}|%f %F{cyan}%Bruby%b%f
 %F{green}%B$ %b%f'
 
 RPROMPT=''
