@@ -88,6 +88,10 @@ alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
 alias empty-trash="setopt rmstarsilent;rm -rfv ~/.Trash/*;unsetopt rmstarsilent"
 
+function cl() {
+    pushd $1 && cleana && popd
+}
+
 function rd() {
     setopt rmstarsilent
     for i
@@ -215,7 +219,7 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # run servers
 
 alias uapi="pushd ~/user-api && bin/rails s --port=3002"
-alias capi="pushd ~/charity-api && heroku local -f Procfile.dev"
+alias capi="pushd ~/charity-api && spring stop && heroku local -f Procfile.dev"
 
 alias yicf="yarn install --check-files"
 
@@ -224,3 +228,8 @@ export EDITOR='emacs -nw'
 # RSPEC
 
 alias rsff="rspec --fail-fast"
+
+# HEROKU CONSOLES
+
+alias staging="heroku run rails c -a charity-api-staging"
+alias prod="heroku run rails c -a charity-api"
