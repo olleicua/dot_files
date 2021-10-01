@@ -31,10 +31,10 @@
  '(default ((t (:background "black" :foreground "white"))))
 
  ;; whitespace
- '(whitespace-space ((t (:bold t :foreground "#904a70"))))
- '(whitespace-indentation ((t (:bold t :foreground "#904a70"))))
+ '(whitespace-space ((t (:bold t :foreground "#300020"))))
+ '(whitespace-indentation ((t (:bold t :foreground "#300020"))))
  '(whitespace-line ((t ())))
- '(whitespace-newline ((t (:foreground "#904a70"))))
+ '(whitespace-newline ((t (:foreground "#300020"))))
  '(whitespace-tab ((t (:foreground "#ffbbaa" :background "#ff3030"))))
  '(whitespace-trailing ((t (:foreground "#ffbbaa" :background "#ff3030"))))
 
@@ -241,3 +241,10 @@ point."
 (add-hook 'prog-mode-hook 'linum-mode)
 ;; (set-face-foreground 'linum "black")
 ;; (set-face-background 'linum "yellow")
+
+;; ITERM2 MOUSE SUPPORT
+(unless window-system
+  (require 'mouse)
+  (xterm-mouse-mode t)
+  (defun track-mouse (e))
+  (setq mouse-sel-mode t))
