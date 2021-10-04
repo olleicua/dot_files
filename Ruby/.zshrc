@@ -229,7 +229,9 @@ export EDITOR='emacs -nw'
 
 alias rsff="rspec --fail-fast"
 
-# HEROKU CONSOLES
+# HEROKU
 
-alias staging="heroku run rails c -a charity-api-staging"
-alias prod="heroku run rails c -a charity-api"
+alias staging="heroku run -a charity-api-staging"
+alias stagingc="staging rails c"
+alias prod="heroku run -a charity-api"
+alias prodc="prod rails c"
