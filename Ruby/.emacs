@@ -1,6 +1,7 @@
 (add-to-list 'load-path "~/.emacs.d/lisp/")
 
 
+(setq backup-inhibited t)
 (setq cursor-type 'bar)
 
 ;; (require 'haml-mode)
@@ -248,3 +249,5 @@ point."
   (xterm-mouse-mode t)
   (defun track-mouse (e))
   (setq mouse-sel-mode t))
+
+(setq ruby-insert-encoding-magic-comment nil)
