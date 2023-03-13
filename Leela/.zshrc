@@ -187,6 +187,7 @@ PATH=/opt/homebrew/opt:/opt/homebrew/bin:$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/
 # ROSETTA
 
 alias rbrew='/usr/local/bin/brew'
+alias aaz='arch -arm64 zsh'
 
 # FUN
 
@@ -225,9 +226,13 @@ eval "$(rbenv init -)"
 alias startpg="brew services start postgresql"
 #alias uapi="pushd ~/user-api && bin/rails s --port=3002"
 alias capi="pushd ~/charity-api && nvm use 18.4.0 && doppler run -- heroku local -f Procfile.dev"
+alias caping="pushd ~/charity-api && nvm use 18.4.0 && doppler run -c dev_ngrok -- heroku local -f Procfile.dev"
 
 alias dop="doppler run -- "
-alias dopr="dop rails "
+alias dopr="dop bundle exec rails "
+
+alias dopng="doppler run -c dev_ngrok -- "
+alias doprng="dopng bundle exec rails "
 
 alias yicf="yarn install --check-files"
 
