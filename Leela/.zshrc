@@ -242,6 +242,7 @@ export EDITOR='emacs -nw'
 
 export RUBYOPT='-W0'
 alias rs="dop bundle exec rspec"
+alias rsfl="dop bundle exec rspec --tag flaky"
 alias rsff="dop bundle exec rspec --fail-fast"
 
 # HEROKU

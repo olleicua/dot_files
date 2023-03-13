@@ -28,6 +28,11 @@
         rall = reset HEAD .
         rd = rm -r
 
+        # unstage
+
+        cli = clean -i
+        clf = clean -f
+
         # commit
         ci = commit
         ca = "!git add . -v ; git commit"
