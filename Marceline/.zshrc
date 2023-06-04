@@ -14,12 +14,12 @@ setopt completeinword
 # PROMPTS #
 
 #source $HOME/open_source/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-source $HOME/.zsh/git-prompt/zshrc.sh
+source $HOME/.zsh/zsh-git-prompt/zshrc.sh
 
 PROMPT="
 %F{green}%B$ %b%f"
 
-RPROMPT='%(!|%F{magenta}|%F{cyan})%B%1~%b%f$(git_super_status)%(0?--%F{green}%B |%b%f %F{red}%B%?%b%f)'
+RPROMPT='%(!|%F{magenta}|%F{cyan})%B%~%b%f$(git_super_status)%(0?--%F{green}%B |%b%f %F{red}%B%?%b%f)'
 
 # NAVIGATION #
 
@@ -57,6 +57,10 @@ alias path="echo $PATH | tr : '\n'"
 alias dot="dot -Tpng"
 alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
+
+function sample() {
+  ruby -e"p %i[$*].sample"
+}
 
 # RAILS #
 
