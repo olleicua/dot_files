@@ -57,6 +57,7 @@ alias path="echo $PATH | tr : '\n'"
 alias dot="dot -Tpng"
 alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
+alias df="df -h"
 
 function sample() {
   ruby -e"p %i[$*].sample"
@@ -79,7 +80,7 @@ alias rand="ruby -e'p rand ARGV[0].to_i'"
 alias svn="echo '... really..?' #"
 
 ### Added by the Heroku Toolbelt                                                                                                                       
-export PATH="/home/linuxbrew/.linuxbrew/bin/:/usr/local/heroku/bin:$PATH"
+export PATH="/home/linuxbrew/.linuxbrew/bin/:/usr/local/heroku/bin:/home/deck/bin/:$PATH"
 
 # PANORAMA TOOLS #
 [[ -s $HOME/panorama_environment.sh ]] && source $HOME/panorama_environment.sh
