@@ -89,7 +89,7 @@ alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv *
 alias empty-trash="setopt rmstarsilent;rm -rfv ~/.Trash/*;unsetopt rmstarsilent"
 
 function cl() {
-    pushd $1 && cleana && popd
+    pushd $1; cleana; popd
 }
 
 function rd() {
@@ -182,7 +182,7 @@ source ~/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 # BIN
 
-PATH=/opt/homebrew/opt:/opt/homebrew/bin:$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/.gem/ruby/2.5.0/bin:/Users/sam/.gem/ruby/2.7.0/bin:$HOME/bin
+PATH=/usr/local/git/bin:/opt/homebrew/opt:/opt/homebrew/bin:$PATH:~/.gem/ruby/2.6.0/bin:/Users/sam/.gem/ruby/2.5.0/bin:/Users/sam/.gem/ruby/2.7.0/bin:$HOME/bin
 
 # ROSETTA
 
@@ -234,6 +234,8 @@ alias dopr="dop bundle exec rails "
 alias dopng="doppler run -c dev_ngrok -- "
 alias doprng="dopng bundle exec rails "
 
+alias ng="ngrok http --hostname=gl.ngrok.io secure.localhost:3001"
+
 alias yicf="yarn install --check-files"
 
 export EDITOR='emacs -nw'
@@ -251,6 +253,8 @@ alias staging="heroku run -a charity-api-staging"
 alias stagingc="staging rails c"
 alias prod="heroku run -a charity-api"
 alias prodc="prod rails c"
+alias sandbox="heroku run -a charity-api-sandbox"
+alias sandboxc="sandbox rails c"
 export PATH="$HOME/.rbenv/bin:$PATH"
 
 eval "$(rbenv init - zsh)"
