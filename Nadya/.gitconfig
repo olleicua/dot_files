@@ -48,6 +48,7 @@
         co = checkout
         back = checkout -
         b = branch
+        cob = "!cob() { git branch | grep $1 | head -n 1 | sed 's/^[ *]*//' | xargs git checkout; }; cob"
 
         # merge
         pmm = "!GIT_DEFAULT_BRANCH=`git symbolic-ref refs/remotes/origin/HEAD | ruby -e 'puts gets.split(%q[/]).pop'`; git checkout $GIT_DEFAULT_BRANCH && git pull && git checkout - && git merge $GIT_DEFAULT_BRANCH" # pull merge main (or master or whatever the default branch is called)
