@@ -157,6 +157,8 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
+alias pick-reviewer="ruby -e'p %i[joe dave kate weldys jordan].sample'"
+
 we() {
     which $1;
     eval "$@";
@@ -225,8 +227,8 @@ export PATH="$HOME/.yarn/bin:$PATH"
 # run servers
 alias startpg="brew services start postgresql"
 #alias uapi="pushd ~/user-api && bin/rails s --port=3002"
-alias capi="pushd ~/charity-api && nvm use 18.4.0 && doppler run -- heroku local -f Procfile.dev"
-alias caping="pushd ~/charity-api && nvm use 18.4.0 && doppler run -c dev_ngrok -- heroku local -f Procfile.dev"
+alias capi="pushd ~/charity-api  && doppler run -- heroku local -f Procfile.dev"
+alias caping="pushd ~/charity-api  && doppler run -c dev_ngrok -- heroku local -f Procfile.dev"
 
 alias dop="doppler run -- "
 alias dopr="dop bundle exec rails "
@@ -284,3 +286,6 @@ export CPPFLAGS="-I/opt/homebrew/opt/readline/include"
 
 # RESET CAMERA
 alias reset-camera="sudo killall VDCAssistant"
+
+# RBENV
+eval "$(rbenv init - zsh)"
