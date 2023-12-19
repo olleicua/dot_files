@@ -157,7 +157,7 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
-alias pick-reviewer="ruby -e'p %i[joe dave kate weldys jordan].sample'"
+alias pick-reviewer="ruby -e'p %i[joe dave weldys jordan seth christian].sample'"
 
 we() {
     which $1;
@@ -258,6 +258,11 @@ alias prodc="prod rails c"
 alias sandbox="heroku run -a charity-api-sandbox"
 alias sandboxc="sandbox rails c"
 export PATH="$HOME/.rbenv/bin:$PATH"
+
+# GL BIN
+
+alias lt="./bin/lint"
+alias lb="./bin/lint --branch"
 
 # eval "$(rbenv init - zsh)"
 
