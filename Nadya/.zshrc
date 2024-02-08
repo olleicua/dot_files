@@ -157,7 +157,7 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
-alias pick-reviewer="ruby -e'p %i[joe dave weldys jordan seth christian].sample'"
+alias pick-reviewer="ruby -e'p %i[joe dave weldys traci seth christian].sample'"
 
 we() {
     which $1;
@@ -208,6 +208,8 @@ export NVM_DIR="$HOME/.nvm"
 #npm config delete prefix
 
 # GIT #
+
+alias check-for-emacs-artifacts="git diff --no-commit-id --name-only --staged | grep '[*#]' | ruby -e 'ARGF.read.strip.size>0 && raise(\"emacs artifacts staged\")'"
 
 #source ~/.zsh/git-flow-completion.zsh
 
