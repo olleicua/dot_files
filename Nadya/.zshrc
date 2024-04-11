@@ -157,7 +157,7 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
-alias pick-reviewer="ruby -e'p %i[joe dave weldys traci seth christian].sample'"
+alias pick-reviewer="ruby -e'p %i[g joe dave weldys traci seth christian annabel].sample'"
 
 we() {
     which $1;
@@ -169,7 +169,7 @@ we() {
 alias routes-grep="bundle exec rake routes | grep"
 
 function gen-migration() {
-    bundle exec rails g migration $* | ruby -e 'qq = STDIN.read; puts qq; exec "cat #{qq.strip.split(/\s+/).last}"'
+    dopr generate migration $* | ruby -e 'qq = STDIN.read; puts qq; exec "cat #{qq.strip.split(/\s+/).last}"'
 }
 
 function single-test() {
