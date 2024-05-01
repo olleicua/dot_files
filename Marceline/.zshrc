@@ -58,6 +58,7 @@ alias dot="dot -Tpng"
 alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
 alias df="df -h"
+alias serve="python3 -m http.server"
 
 function sample() {
   ruby -e"p %i[$*].sample"
@@ -100,3 +101,8 @@ export USE_PRY=true
 #  tmuxinator start panorama
 #fi
 
+# NVM
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
