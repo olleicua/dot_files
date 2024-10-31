@@ -146,6 +146,7 @@ alias mp=mpv
 
 alias df="df -h"
 alias rspec="bundle exec rspec"
+alias guard="GUARD_ONLY_RSPEC=1 doppler run bundle exec guard"
 alias dj="python manage.py"
 alias djadmin="django-admin"
 alias ez="emacs -nw $HOME/.zshrc"
@@ -157,7 +158,7 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
-alias pick-reviewer="ruby -e'p %i[g joe dave weldys traci seth christian annabel].sample'"
+alias pick-reviewer="ruby -e'p %i[g dave weldys traci seth christian annabel hanna].sample'"
 
 we() {
     which $1;
@@ -247,9 +248,12 @@ export EDITOR='emacs -nw'
 # RSPEC
 
 export RUBYOPT='-W0'
-alias rs="dop bundle exec rspec"
-alias rsfl="dop bundle exec rspec --tag flaky"
-alias rsff="dop bundle exec rspec --fail-fast"
+alias rs="NO_PRECOMPILE_BEFORE_SYSTEM_SPEC=true dop bundle exec rspec"
+alias rsfl="NO_PRECOMPILE_BEFORE_SYSTEM_SPEC=true dop bundle exec rspec --tag flaky"
+alias rsff="NO_PRECOMPILE_BEFORE_SYSTEM_SPEC=true dop bundle exec rspec --fail-fast"
+alias crs="dop bundle exec rspec"
+alias crsfl="dop bundle exec rspec --tag flaky"
+alias crsff="dop bundle exec rspec --fail-fast"
 
 # HEROKU
 
