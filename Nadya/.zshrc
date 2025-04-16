@@ -69,6 +69,7 @@ alias pack-tar="tar zcvf"
 alias ps="ps -A"
 alias g=git
 alias e="emacs -nw"
+alias ec="emacsclient -n -a ''"
 
 # MISC #
 
@@ -82,7 +83,7 @@ alias path="echo $PATH | tr : '\n'"
 alias ts="date -r"
 alias beep="osascript -e 'beep 3'"
 alias dot="dot -Tpng"
-alias serve="sudo python -m SimpleHTTPServer 80"
+alias serve="python3 -m http.server"
 #alias fact="elinks -dump randomfunfacts.com | sed -n '/^| /p' | tr -d \|"
 alias clean="rm -fv *~;rm -fv .*~;rm -fv '#'*;rm -fv '.#'*;rm -fv '.~'*'#'"
 alias cleana="rm -fv **/*~;rm -fv **/.*~;rm -fv **/'#'*;rm -fv **/'.#'*;rm -fv **/'.~'*'#'"
@@ -158,7 +159,7 @@ alias svn="echo '... really..?' #"
 alias ps-grep="ps -A | grep"
 #alias hcl="node $HOME/Dropbox/School/Plan/hcl/bin/hcl"
 
-alias pick-reviewer="ruby -e'p %i[g dave weldys traci seth christian annabel hanna].sample'"
+alias pick-reviewer="ruby -e'p %i[dave weldys traci seth christian annabel max sophia].sample'"
 
 we() {
     which $1;
@@ -241,8 +242,6 @@ alias doprng="dopng bundle exec rails "
 
 alias ng="ngrok http --hostname=gl.ngrok.io secure.localhost:3001"
 
-alias yicf="yarn install --check-files"
-
 export EDITOR='emacs -nw'
 
 # RSPEC
@@ -254,6 +253,13 @@ alias rsff="NO_PRECOMPILE_BEFORE_SYSTEM_SPEC=true dop bundle exec rspec --fail-f
 alias crs="dop bundle exec rspec"
 alias crsfl="dop bundle exec rspec --tag flaky"
 alias crsff="dop bundle exec rspec --fail-fast"
+
+# YARN
+
+alias yicf="yarn install --check-files"
+alias yt="yarn test"
+alias ytd="node inspect $(yarn bin jest) --runInBand"
+alias ytu="yarn test -u"
 
 # HEROKU
 
