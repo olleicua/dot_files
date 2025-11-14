@@ -59,3 +59,32 @@
                   (when (string= "\n" (char-to-string (char-after)))
                     (delete-char 1))
                   (delete-horizontal-space)))
+
+;; cursor
+(setq-default cursor-type 'bar)
+
+;; Enable whitespace mode globally
+;; Comprehensive whitespace configuration
+(setq whitespace-style
+      '(face         ; Use faces to visualize
+        tab-mark     ; Show tabs
+        space-mark   ; Show spaces
+        trailing     ; Highlight trailing whitespace
+        lines-tail   ; Highlight lines longer than `whitespace-line-column'
+        newline      ; Show newlines
+        newline-mark ; Show newlines
+        empty        ; Show empty lines at beginning/end of buffer
+        ))
+
+
+(setq whitespace-line-column 80) ; Highlight long lines
+(setq whitespace-space-regexp "\\(\x3000+\\)") ; For full-width spaces
+
+;; Custom faces
+(custom-set-faces
+ '(whitespace-space ((t (:background "gray15" :foreground "gray40"))))
+ '(whitespace-tab ((t (:background "red" :foreground "red"))))
+ '(whitespace-trailing ((t (:background "red" :foreground "white"))))
+ '(whitespace-newline ((t (:foreground "gray30" :weight bold)))))
+
+(global-whitespace-mode 1)
