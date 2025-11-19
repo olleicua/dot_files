@@ -1,16 +1,16 @@
+(setq comp-deferred-compilation nil)
+(setq native-comp-deferred-compilation nil)
+
+(add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/") t)
+;(server-mode -1)
+
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
  '(js-indent-level 2)
- '(package-selected-packages '(company)))
-(custom-set-faces
- ;; custom-set-faces was added by Custom.
- ;; If you edit it by hand, you could mess it up, so be careful.
- ;; Your init file should contain only one such instance.
- ;; If there is more than one, they won't work right.
- )
+ '(package-selected-packages '(whitespace-plus company)))
 
 (load-theme 'deeper-blue t)
 
@@ -18,27 +18,27 @@
 (electric-indent-mode 1)
 
 ;; Company mode for completion
-(use-package company
-  :ensure t
-  :config
-  (global-company-mode 1)
-  (setq company-tooltip-limit 10
-        company-show-numbers t
-        company-idle-delay 0.2
-        company-minimum-prefix-length 2))
+;; (use-package company
+;;   :ensure t
+;;   :config
+;;   (global-company-mode 1)
+;;   (setq company-tooltip-limit 10
+;;         company-show-numbers t
+;;         company-idle-delay 0.2
+;;         company-minimum-prefix-length 2))
 
 ;; Smart tab function
-(defun smart-tab ()
-  "Smart tab behavior: complete or indent."
-  (interactive)
-  (cond
-   ((minibufferp) (minibuffer-complete))
-   ((and company-mode (company--should-complete))
-    (company-complete-common-or-cycle))
-   ((looking-at "\\_>") (completion-at-point))
-   (t (indent-for-tab-command))))
-
-(global-set-key (kbd "TAB") 'smart-tab)
+;; (defun smart-tab ()
+;;   "Smart tab behavior: complete or indent."
+;;   (interactive)
+;;   (cond
+;;    ((minibufferp) (minibuffer-complete))
+;;    ((and company-mode (company--should-complete))
+;;     (company-complete-common-or-cycle))
+;;    ((looking-at "\\_>") (completion-at-point))
+;;    (t (indent-for-tab-command))))
+;; 
+;; (global-set-key (kbd "TAB") 'smart-tab)
 
 ;; Enable line numbers globally
 (global-display-line-numbers-mode 1)
@@ -63,28 +63,13 @@
 ;; cursor
 (setq-default cursor-type 'bar)
 
-;; Enable whitespace mode globally
-;; Comprehensive whitespace configuration
-(setq whitespace-style
-      '(face         ; Use faces to visualize
-        tab-mark     ; Show tabs
-        space-mark   ; Show spaces
-        trailing     ; Highlight trailing whitespace
-        lines-tail   ; Highlight lines longer than `whitespace-line-column'
-        newline      ; Show newlines
-        newline-mark ; Show newlines
-        empty        ; Show empty lines at beginning/end of buffer
-        ))
+;; whitespace
+
+(setq-default show-trailing-whitespace t)
 
 
-(setq whitespace-line-column 80) ; Highlight long lines
-(setq whitespace-space-regexp "\\(\x3000+\\)") ; For full-width spaces
-
-;; Custom faces
-(custom-set-faces
- '(whitespace-space ((t (:background "gray15" :foreground "gray40"))))
- '(whitespace-tab ((t (:background "red" :foreground "red"))))
- '(whitespace-trailing ((t (:background "red" :foreground "white"))))
- '(whitespace-newline ((t (:foreground "gray30" :weight bold)))))
-
-(global-whitespace-mode 1)
+;; CSS
+(with-eval-after-load 'css-mode
+  ;; Set the indentation step to 2 spaces for css-mode
+  (setq css-indent-offset 2)
+)

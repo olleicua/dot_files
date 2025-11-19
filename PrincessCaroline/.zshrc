@@ -46,6 +46,7 @@ alias sai="sudo apt install"
 # FILES #
 
 alias e="emacs"
+alias ke="pkill emacs"
 alias t="touch"
 export EDITOR="/usr/bin/emacs"
 
@@ -92,6 +93,7 @@ alias ez="emacs ~/.zshrc"
 alias z=". ~/.zshrc"
 alias rand="ruby -e'p rand ARGV[0].to_i'"
 alias svn="echo '... really..?' #"
+alias serve="python3 -m http.server"
 
 # TMUX #
 
